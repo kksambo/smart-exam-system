@@ -82,13 +82,16 @@ async def login(payload: UserLogin, session: AsyncSession = Depends(get_db)):
     user = result.scalar_one_or_none()
 
     if not user:
-        raise HTTPException(status_code=400, detail="Invalid username or password")
+        return {"message": "Invalid username"}
 
     # Verify password
     if not verify_password(payload.password, user.password):
-        raise HTTPException(status_code=400, detail="Invalid username or password")
+
+        return{"message": "Invalid password"}
+
+
 
     # Create JWT
     token = create_access_token({"sub": user.username})
 
-    return {"access_token": token, "token_type": "bearer"}
+    return {"access_token": token, "token_type": "bearer","message":"login success"}

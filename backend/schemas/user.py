@@ -24,5 +24,6 @@ class UserOut(BaseModel):
 
 
 class Token(BaseModel):
-    access_token: str
+    access_token: str = "no token"
     token_type: str = "bearer"
+    message: str = "login success"
