@@ -1,5 +1,4 @@
 
-"rijjtpiyiypo6'ko"
 from typing import List
 from pydantic import BaseModel
 
