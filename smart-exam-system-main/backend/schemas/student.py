@@ -1,28 +1,20 @@
 
-
+from typing import List
 from pydantic import BaseModel
 
 
- 
+class StudentBase(BaseModel):
+  
 
-   
-
-
-class StudentCreate(BaseModel):
-     
     full_names: str
     stud_nr: str
     cell_num: str
-    email : str
+    faculty: str
+
+
+class StudentCreate(StudentBase):
+ 
+
+    email: str
     password: str
-
-
-class StudentRead(StudentBase):
-  
-
-    id: int
-
-    class Config:
-     
-
-        from_attributes = True
+    subject_ids: List[int]
