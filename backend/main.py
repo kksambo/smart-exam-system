@@ -14,6 +14,7 @@ import uvicorn
 
 from database import init_db
 from routers.auth import router as auth_router
+from routers.lecturer import router as lecturer_router
 
 
 
@@ -52,6 +53,7 @@ def index():
 
 # Include authentication routes
 app.include_router(auth_router)
+app.include_router(lecturer_router)
 
 
 if __name__ == "__main__":
